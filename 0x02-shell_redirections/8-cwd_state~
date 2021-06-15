@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -la > /root/holberton-system_enginering-devops/0x02-shell_redirections/ls_cwd_content
