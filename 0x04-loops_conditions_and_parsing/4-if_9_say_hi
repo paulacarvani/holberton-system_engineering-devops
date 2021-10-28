@@ -2,7 +2,7 @@
 # This script is displaying "Best School" 10 times with while and if
 COUNTER=1
 while [ $COUNTER -le 10 ]; do
-    echo Holberton School
+    echo Best School
 
     if [ $COUNTER -eq 9 ]
     then
