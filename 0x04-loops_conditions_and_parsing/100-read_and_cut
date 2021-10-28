@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # This script displays the content of the file /etc/passwd.
-data="/etc/passwd"
-while read rline
+while read line
 do
-    echo "$rline" | cut -d ':' -f 1,3,6
-done < $data
+    echo "$line" | cut -d ':' -f1,3,6
+done </etc/passwd
