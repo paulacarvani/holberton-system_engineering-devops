@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times with while and if
 i=0
-while [ $i -lt 9 ]
+while [ $i -lt 10 ]
 do
-    if [$i -eq 8]
+    echo "Best School"
+    if [$i -eq 8 ];
     then
-        echo "Hi"
-    else
-        echo "Best School"
+    echo "Hi"
     fi
 i=$((i+1))
 done
