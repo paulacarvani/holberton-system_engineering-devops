@@ -1,4 +1,2 @@
-#!/usr/bin/env bash
-# Share your SSH client configuration in your answer file
+IdentifyFile ~/.ssh/school
 PasswordAuthentication no
-IdentityFile ~/.ssh/school
