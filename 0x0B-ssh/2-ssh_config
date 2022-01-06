@@ -1,6 +1,6 @@
 Host*
 GSSAPIClientIdentity yes
 GSSAPIDelegateCredentials no
-HostName 34.74.60.97
+HostName 35.237.0.179
 IdentityFile ~/.ssh/school
 PasswordAuthentication no
