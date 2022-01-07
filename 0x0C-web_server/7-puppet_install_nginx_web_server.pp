@@ -5,9 +5,9 @@ package { 'nginx':
   ensure => 'installed'
 }
 
-# Create index file with content "Holberton School for the win!"
+# Create index file with content "Hello World"
 file { '/var/www/html/index.html':
-  content => 'Holberton School for the win!'
+  content => 'Hello World'
 }
 
 # Add permament redirection
