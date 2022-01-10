@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Script that configures a new web server
+
+# Update
+sudo apt-get -y update
+
+# Install nginx
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+
+# page Hello World
+echo "Hello World" | sudo tee /var/www/html/index.html
+
+#Redirects
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+#page 404
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+newlines="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
+sudo sed -i "27i $newlines" /etc/nginx/sites-available/default
+
+#header
+sudo sed -i "/listen 80 server_name _/a add_header X-Served-By \"$HOSTNAME\";" /etc/nginx/sites-available/default
+
+#Starts Nginx
+sudo service nginx start
