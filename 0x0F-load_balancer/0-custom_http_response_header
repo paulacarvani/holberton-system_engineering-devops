@@ -11,13 +11,14 @@ newline2="server_name _;\n\tadd_header X-Served-By $HOSTNAME;"
 
 # Update
 sudo apt-get -y update
+sudo apt-get -y upgrade
 
 # Install nginx
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 
 # Permission
-sudo chown -R $USER:$USER /var/
+sudo chown -R "$USER":"$USER" /var/
 
 # html files
 echo "Hello World" | sudo tee $index
