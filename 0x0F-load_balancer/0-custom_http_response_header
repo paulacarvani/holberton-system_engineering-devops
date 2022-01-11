@@ -2,10 +2,10 @@
 # Script that configures a new web server
 
 # Variables
-index = "/var/www/html/index.html"
-url_youtube = "https://www.youtube.com/watch?v=QH2-TGUlwu4"
-available_default = "/etc/nginx/sites-available/default"
-error404 = "/usr/share/nginx/html/404.html"
+index="/var/www/html/index.html"
+url_youtube="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+available_default="/etc/nginx/sites-available/default"
+error404="/usr/share/nginx/html/404.html"
 
 # Update
 sudo apt-get -y update
@@ -31,5 +31,4 @@ sudo sed -i "/listen 80 default_server/a error_page 404 /error404.html;" $availa
 sudo sed -i "/listen 80 default_server;/a add_header X-Served-By $HOSTNAME;" $available_default
 
 # Starts Nginx
-sudo service nginx restart
-sudo service nginx reload
+sudo service nginx start
