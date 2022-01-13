@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Web stack debugging Nginx in port 80
+
+#stops Nginx
+sudo service nginx stop
+# Removes file >> is the path given to the default website for Debian based systems
+sudo rm /etc/nginx/sites-enabled/default
+# Creates a soft simbolic link ln -s myfile.txt mylink
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# Reload and start again Nginx
+sudo service nginx reload
+sudo service nginx start
