@@ -33,16 +33,11 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend www-http
-         bind *:80
-         mode http
-         default_backend icap_pool
-frontend www-https
-        bind *:443 ssl crt /etc/letsencrypt/live/www.paulacarvani.tech/fullchain.pem
-        mode https
-        default_backend icap_pool
-backend icap_pool
-        balance roundrobin
+listen http-in
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/paulacarvani.pem
         mode http
+        redirect scheme https code 301 if !{ ssl_fc }
+        balance roundrobin
         server 3312-web-01 35.237.0.179:80 check
-        server 3312-web-02 54.167.64.127:80 check
+        server 3312-web-01 54.167.64.127:80 check
