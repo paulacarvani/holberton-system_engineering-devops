@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Script to install ufw in web server and add rules
+# Configure ufw so that it blocks all incoming traffic, except the following TCP ports:
+# 22 (SSH)
+# 443 (HTTPS SSL)
+# 80 (HTTP)
+
+
+# Update
+sudo apt-get update
+# Install ufw
+sudo apt-get install ufw -y
+# Disables firewall for the configuration
+sudo ufw disable
+# Definition of configuration by default
+# Denies incoming connections that do not match any rules.
+sudo ufw default deny incoming
+# Allows outbound connections that do not match any rules
+sudo ufw default allow outgoing
+# IMPORTANT - MUST DO ALWAYS BEFORE DISCONECT
+# Rule to allow the ssh conection in port 22 IMPORTANT ALWAYS
+sudo ufw allow 22/tcp
+# Rules for port 443 and 80
+sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp
+# Enables the firewall
+sudo ufw enable
