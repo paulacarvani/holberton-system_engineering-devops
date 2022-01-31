@@ -33,8 +33,8 @@ if __name__ == "__main__":
 
     """Prints info of user"""
     print("Employee {} is done with task({}/{}:)".format(us_name,
-                                                        task_comp,
-                                                        task_all))
+                                                         task_comp,
+                                                         task_all))
 
     """Prints info of todos"""
     [print("\t {}".format(task)) for task in desc_task]
