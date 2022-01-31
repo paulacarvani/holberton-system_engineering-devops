@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     """The variables to export in each row of the csv file"""
     rows = [[id, us_name, task.get('completed'), task.get('title')]
-           for task in tasks]
+            for task in tasks]
 
     """Exports in csv file"""
     with open("{}.csv".format(id), "w", newline="") as csvfile:
