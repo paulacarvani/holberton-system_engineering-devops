@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
 Python script that, using a REST API in url,
 for a given employee ID, returns information about his/her TODO list progress
 """
@@ -33,9 +33,9 @@ if __name__ == "__main__":
     task_comp = len(desc_task)
 
     """Prints info of user"""
-    print("Employee {} is done with task({}/{}):".format(us_name,
-                                                         task_comp,
-                                                         task_all))
+    print("Employee {} is done with tasks({}/{}):".format(us_name,
+                                                          tasks_comp,
+                                                          tasks_all))
 
     """Prints info of todos"""
     [print("\t {}".format(task)) for task in desc_task]
