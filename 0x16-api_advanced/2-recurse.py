@@ -8,7 +8,6 @@ from requests import get
 def recurse(subreddit, hot_list=[], after=""):
     url = "https://www.reddit.com/r/{}/hot/.json?limit=10".format(subreddit)
     headers = {'user-agent': 'my-app/0.0.1'}
-    r = get(url, headers=headers, params=params, allow_redirects=False)
 
     if after is None:
         return hot_list
@@ -17,6 +16,7 @@ def recurse(subreddit, hot_list=[], after=""):
         'limit': 100,
         'after': after
     }
+    r = get(url, headers=headers, params=params, allow_redirects=False)
 
     if r.status_code != 200:
         return None
