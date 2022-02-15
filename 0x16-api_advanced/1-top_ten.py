@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """Function that queries the Reddit API and prints the
 titles of the first 10 hot posts listed for a given subreddit."""
-from multiprocessing.sharedctypes import Value
-from tkinter.messagebox import NO
 from requests import get
 
 
