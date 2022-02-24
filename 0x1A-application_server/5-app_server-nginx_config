@@ -51,32 +51,39 @@ server {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
 
-	location / {
+	#location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
+	#	try_files $uri $uri/ =404;
+	#}
 
 	location /airbnb-onepage/ {
 		include proxy_params;
 		proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
 	}
 
-    location /airbnb-dynamic/ {
+	location /airbnb-dynamic/ {
+		include proxy_params;
+		proxy_pass http://0.0.0.0:5001/;
+	}
+
+	location /api/ {
+		include proxy_params;
+		proxy_pass http://0.0.0.0:5002/api/;
+	}
+
+	location / {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
         include proxy_params;
-        proxy_pass http://0.0.0.0:5001/;
+        proxy_pass http://0.0.0.0:5003/2-hbnb/;
+        #try_files $uri $uri/ =404;
     }
 
-    location /api/ {
-        include proxy_params;
-        proxy_pass http://0.0.0.0:5002/api/;
+    location /static/ {
+        autoindex off;
+        alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static/;
     }
-
-    location / {
-        include proxy_params;
-        proxy_pass http://0.0.0.0:5003/2-hbnb;
-    }
-
 
 	# pass PHP scripts to FastCGI server
 	#
